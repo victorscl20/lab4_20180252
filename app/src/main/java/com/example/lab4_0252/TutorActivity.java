@@ -62,8 +62,6 @@ public class TutorActivity extends AppCompatActivity {
                         t.printStackTrace();
                     }
                 });
-
-
                 }
         });
 

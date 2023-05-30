@@ -25,7 +25,7 @@ public interface EmployeeRepository {
     Call<DTOemployee> getEmployee(@Query("id") Integer id);
 
     @GET("/tutor/job")
-    Call<DTOjob> obtenerJob(@Query("id") String id);
+    Call<DTOjob> getJob(@Query("id") String id);
 
     @GET("/tutor/depa")
     Call<DTOdepartments> obtenerDepa(@Query("id") Integer id);
