@@ -3,6 +3,7 @@ package com.example.lab4_0252;
 import static android.content.ContentValues.TAG;
 
 import android.content.Context;
+import android.content.Intent;
 import android.nfc.Tag;
 import android.os.Bundle;
 import android.util.Log;
@@ -67,10 +68,39 @@ public class TutorActivity extends AppCompatActivity {
         });
 
 
+        binding.buttonSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(TutorActivity.this, BuscarActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        binding.buttonAsignar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(TutorActivity.this, BuscarActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
 
     }
 
     private void saveJson(List<Employee> employeeList) {
         Gson gson = new Gson();
+        String listaEmployeesAsJson = gson.toJson(employeeList);
+
+        Log.d(TAG, listaEmployeesAsJson);
+        String fileName = "listEmployees.txt";
+        try (FileOutputStream fileOutputStream = openFileOutput(fileName, Context.MODE_PRIVATE);
+             FileWriter fileWriter = new FileWriter(fileOutputStream.getFD())) {
+            fileWriter.write(listaEmployeesAsJson);
+            Log.d(TAG, "good");
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

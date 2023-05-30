@@ -22,7 +22,7 @@ public interface EmployeeRepository {
     Call<List<Employee>> getEmployees();
 
     @GET("/tutor/infoEmployee")
-    Call<DTOemployee> obtenerEmployee(@Query("id") Integer id);
+    Call<DTOemployee> getEmployee(@Query("id") Integer id);
 
     @GET("/tutor/job")
     Call<DTOjob> obtenerJob(@Query("id") String id);
